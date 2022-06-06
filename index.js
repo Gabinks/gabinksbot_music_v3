@@ -1,16 +1,10 @@
-const { Client, MessageEmbed } = require('discord.js')
+const { Client, MessageEmbed, Application } = require('discord.js')
 const { prefix } = require('./config.json')
 require('dotenv').config()
 const Distube = require('distube').default
 const { SpotifyPlugin } = require('distube-spotify')
 const { SoundCloudPlugin } = require('@distube/soundcloud')
 const { YtDlpPlugin } = require('@distube/yt-dlp')
-
-var server_port = process.env.PORT;
-var server_host = '0.0.0.0';
-server.listen(server_port, server_host, function() {
-    console.log('Listening on port %d', server_port);
-});
 
 const client = new Client({
     intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_VOICE_STATES']
