@@ -1,0 +1,23 @@
+{
+  "name": "gabinks-bot",
+  "version": "1.0.0",
+  "description": "a music bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Gabinks",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.7.0",
+    "@discordjs/voice": "^0.10.0",
+    "@distube/soundcloud": "^1.1.0",
+    "@distube/yt-dlp": "^1.0.2",
+    "discord.js": "^13.8.0",
+    "distube": "^3.3.4",
+    "distube-spotify": "^0.0.6",
+    "dotenv": "^16.0.1",
+    "ffmpeg-static": "^4.4.1",
+    "libsodium-wrappers": "^0.7.10"
+  }
+}
