@@ -1,7 +1,6 @@
 const { Client, MessageEmbed } = require('discord.js')
 const { prefix } = require('./config.json')
 require('dotenv').config()
-var token = process.env.TOKEN
 const Distube = require('distube').default
 const { SpotifyPlugin } = require('distube-spotify')
 const { SoundCloudPlugin } = require('@distube/soundcloud')
@@ -220,4 +219,4 @@ client.on('messageCreate', async message => {
     }
 });
 
-client.login(token)
+client.login(process.env.TOKEN)
