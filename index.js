@@ -214,6 +214,21 @@ client.on('messageCreate', async message => {
                 }
             }
             break;
+        case "help":
+            {
+                message.reply({
+                    embeds: [
+                        new MessageEmbed()
+                            .setColor('BLURPLE')
+                            .setTitle(`**Commands for the bot**`)
+                            .setDescription(`play [song/link] \n plays a song \n \n playskip [song/link] \n plays a song and skips the current one \n \n skip \n skips the current song \n \n stop \n stops the current song \n \n pause \n pauses the current song \n \n resume \n resumes the current song \n \n volume [number] \n sets the volume to [number] \n \n loop [song/queue/off] \n sets the loop mode to [song/queue/off] \n \n queue \n shows the current queue \n \n help \n shows this message`)
+                            .setFooter({
+                                text: `Requested by ${message.author.tag}`
+                            }),
+                    ],
+                });
+            }
+            break;
         default:
             break;
     }
