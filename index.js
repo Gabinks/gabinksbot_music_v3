@@ -2,7 +2,7 @@ const { Client, MessageEmbed, Application } = require('discord.js')
 const { prefix } = require('./config.json')
 require('dotenv').config()
 const Distube = require('distube').default
-const { SpotifyPlugin } = require('distube-spotify')
+const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require('@distube/soundcloud')
 const { YtDlpPlugin } = require('@distube/yt-dlp')
 
