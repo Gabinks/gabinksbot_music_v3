@@ -31,7 +31,7 @@ const distube = new Distube(client, {
 client.on('ready', async => {
     console.log(`bot is online`)
     client.user.setActivity({
-        name: '!help',
+        name: '!help 🎶',
         type: 'LISTENING'
     });
 
@@ -55,9 +55,9 @@ client.on('messageCreate', async message => {
                 let song = args.join(' ')
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`)
+                    return message.reply(`⛔**Please join a voice channel first!**`)
                 } else if (!song) {
-                    return message.reply(`**Please specify a song/link!**`)
+                    return message.reply(`⛔**Please specify a song/link!**`)
                 } else {
                     distube.play(voiceChannel, song, {
                         member: message.member,
@@ -72,9 +72,9 @@ client.on('messageCreate', async message => {
                 let song = args.join(' ')
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`)
+                    return message.reply(`⛔**Please join a voice channel first!**`)
                 } else if (!song) {
-                    return message.reply(`**Please specify a song/link!**`)
+                    return message.reply(`⛔**Please specify a song/link!**`)
                 } else {
                     distube.play(voiceChannel, song, {
                         member: message.member,
@@ -89,12 +89,12 @@ client.on('messageCreate', async message => {
             {
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else {
                     queue.skip().then((s) => {
-                        message.reply(`**Skipped**`);
+                        message.reply(`⏭**Skipped**`);
                     });
                 }
             }
@@ -103,12 +103,12 @@ client.on('messageCreate', async message => {
             {
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else {
                     queue.stop().then((s) => {
-                        message.reply(`**Stopped**`);
+                        message.reply(`⏹**Stopped**`);
                     });
                 }
             }
@@ -117,15 +117,15 @@ client.on('messageCreate', async message => {
             {
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else if (queue.paused) {
-                    return message.reply(`**Already paused**`);
+                    return message.reply(`⛔**Already paused**`);
                 }
                 else {
                     queue.pause();
-                    message.reply(`**Paused**`);
+                    message.reply(`⏸**Paused**`);
                 }
             }
             break;
@@ -133,15 +133,15 @@ client.on('messageCreate', async message => {
             {
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else if (!queue.paused) {
-                    return message.reply(`**Already resumed**`);
+                    return message.reply(`⛔**Already resumed**`);
                 }
                 else {
                     queue.resume();
-                    message.reply(`**Resumed**`);
+                    message.reply(`▶**Resumed**`);
                 }
             }
             break;
@@ -150,15 +150,15 @@ client.on('messageCreate', async message => {
                 let voiceChannel = message.member.voice.channel
                 let volume = Number(args[0])
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else if (!volume) {
-                    return message.reply(`**Please provide volume number**`);
+                    return message.reply(`⛔**Please provide volume number**`);
                 }
                 else {
                     queue.setVolume(volume);
-                    message.reply(`**Volume changed to \`${queue.volume}%\` **`);
+                    message.reply(`📶**Volume changed to \`${queue.volume}%\` **`);
                 }
             }
             break;
@@ -166,9 +166,9 @@ client.on('messageCreate', async message => {
             {
                 let voiceChannel = message.member.voice.channel
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else {
                     let songs = queue.songs.slice(0, 10).map((song, index) => {
                         return `\`${index + 1}\` [\`${song.name}\`](${song.url}) [${song.formattedDuration}]`
@@ -178,10 +178,10 @@ client.on('messageCreate', async message => {
                         embeds: [
                             new MessageEmbed()
                                 .setColor('BLURPLE')
-                                .setTitle(`**Queue of ${message.guild.name}**`)
+                                .setTitle(`🔢**Queue of ${message.guild.name}**`)
                                 .setDescription(songs)
                                 .setFooter({
-                                    text: `Requested by ${message.author.tag}`
+                                    text: `🟢Requested by ${message.author.tag}`
                                 }),
                         ],
                     });
@@ -194,22 +194,22 @@ client.on('messageCreate', async message => {
                 let loopmode = args[0]
                 let mods = ['song', 'queue', 'off']
                 if (!voiceChannel) {
-                    return message.reply(`**Please join a voice channel first!**`);
+                    return message.reply(`⛔**Please join a voice channel first!**`);
                 } else if (!queue) {
-                    return message.reply(`**There is no song playing!**`);
+                    return message.reply(`⛔**There is no song playing!**`);
                 } else if (!mods.includes(loopmode)) {
-                    return message.reply(`**Wrong usage \n > ${mods.join(" , ")}**`);
+                    return message.reply(`⛔**Wrong usage \n > ${mods.join(" , ")}**`);
                 }
                 else {
                     if (loopmode === "song") {
                         queue.setRepeatMode(1)
-                        message.reply(`**Loop mode set to \`${loopmode}\`**`);
+                        message.reply(`🔁**Loop mode set to \`${loopmode}\`**`);
                     } else if (loopmode === "queue") {
                         queue.setRepeatMode(2)
-                        message.reply(`**Loop mode set to \`${loopmode}\`**`);
+                        message.reply(`🔁**Loop mode set to \`${loopmode}\`**`);
                     } else if (loopmode === "off") {
                         queue.setRepeatMode(0)
-                        message.reply(`**Loop mode set to \`${loopmode}\`**`);
+                        message.reply(`🔁**Loop mode set to \`${loopmode}\`**`);
                     }
                 }
             }
@@ -220,10 +220,10 @@ client.on('messageCreate', async message => {
                     embeds: [
                         new MessageEmbed()
                             .setColor('BLURPLE')
-                            .setTitle(`**Commands for the bot**`)
+                            .setTitle(`**✔Commands for the bot**`)
                             .setDescription(`play [song/link] \n plays a song \n \n playskip [song/link] \n plays a song and skips the current one \n \n skip \n skips the current song \n \n stop \n stops the current song \n \n pause \n pauses the current song \n \n resume \n resumes the current song \n \n volume [number] \n sets the volume to [number] \n \n loop [song/queue/off] \n sets the loop mode to [song/queue/off] \n \n queue \n shows the current queue \n \n help \n shows this message`)
                             .setFooter({
-                                text: `Requested by ${message.author.tag}`
+                                text: `🟢Requested by ${message.author.tag}`
                             }),
                     ],
                 });
